@@ -4,6 +4,7 @@ import { debounce } from './debounce'
 const contentTypes = {
   json: 'application/json; charset=utf-8',
   urlencoded: 'application/x-www-form-urlencoded; charset=utf-8',
+  multipart: 'multipart/form-data',
 }
 
 function toastMsg() {
@@ -30,7 +31,7 @@ export const callApi = (
   url,
   data = {},
   options = {},
-  contentType = 'json',
+  contentType = 'json', // json || urlencoded || multipart
   prefixUrl = 'api'
 ) => {
   if (!url) {
@@ -70,6 +71,12 @@ export const callApi = (
       })
     }
   }
+
+  axios.interceptors.request.use((requestConfig) => {
+    // 移除起始部分 / 所有请求url走相对路径
+    requestConfig.url = requestConfig.url.replace(/^\//, '')
+    return requestConfig
+  })
 
   axios.interceptors.response.use(
     (response) => {
