@@ -1,0 +1,27 @@
+{
+  "name": "axios-ajax",
+  "version": "1.0.0",
+  "description": "基于axios二次封装，更友好的在浏览器发送ajax请求",
+  "main": "https.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxyue25/axios-ajax.git"
+  },
+  "keywords": [
+    "axios",
+    "http"
+  ],
+  "author": "zxyue25",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zxyue25/axios-ajax/issues"
+  },
+  "homepage": "https://github.com/zxyue25/axios-ajax#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "qs": "^6.10.1"
+  }
+}
