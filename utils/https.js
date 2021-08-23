@@ -1,6 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import { debounce } from './debounce'
+
 const contentTypes = {
   json: 'application/json; charset=utf-8',
   urlencoded: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -90,8 +91,8 @@ export const callApi = (
         return Promise.resolve(data)
       } else {
         const { message } = data
-        if (!errorMsgObj[msg]) {
-          errorMsgObj[msg] = msg
+        if (!errorMsgObj[message]) {
+          errorMsgObj[message] = message
         }
         setTimeout(debounce(toastMsg, 1000, true), 1000)
         return Promise.reject(data)
