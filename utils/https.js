@@ -81,12 +81,12 @@ export const callApi = (
   axios.interceptors.response.use(
     (response) => {
       const { data } = response
-      if (data.code === '20001') {
+      if (data.code === 'xxx') { // 与服务端约定
         // 登录校验失败
-      } else if (data.code === '20002') {
+      } else if (data.code === 'xxx') { // 与服务端约定
         // 无权限
         router.replace({ path: '/401' })
-      } else if (data.code === '10000') {
+      } else if (data.code === 'xxx') { // 与服务端约定
         return Promise.resolve(data)
       } else {
         const { message } = data
