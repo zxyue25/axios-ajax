@@ -25,7 +25,6 @@ const defaultOptions = {
     'Content-Type': contentTypes.json,
   },
   timeout: 15000,
-  baseURL: 'api',
 }
 
 export const callApi = (
