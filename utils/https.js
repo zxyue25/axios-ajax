@@ -57,8 +57,8 @@ export const callApi = (
         'x-requested-with': 'XMLHttpRequest',
         'cache-control': 'no-cache',
       }
-    } else if (options.headers['Content-Type'] === contentTypes.urlencoded) {
-      options.data = qs.stringify(data)
+    } else if (newOptions.headers['Content-Type'] === contentTypes.urlencoded) {
+      newOptions.data = qs.stringify(data)
     } else {
       Object.keys(data).forEach((item) => {
         if (
