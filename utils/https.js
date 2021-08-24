@@ -72,10 +72,10 @@ export const callApi = (
     }
   }
 
-  axios.interceptors.request.use((requestConfig) => {
+  axios.interceptors.request.use((request) => {
     // 移除起始部分 / 所有请求url走相对路径
-    requestConfig.url = requestConfig.url.replace(/^\//, '')
-    return requestConfig
+    request.url = request.url.replace(/^\//, '')
+    return request
   })
 
   axios.interceptors.response.use(
