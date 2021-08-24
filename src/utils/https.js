@@ -69,6 +69,8 @@ export const callApi = (
           delete data[item]
         }
       })
+      // 没有必要，因为axios会将JavaScript对象序列化为JSON
+      // newOptions.data = JSON.stringify(data);
     }
   }
 
@@ -85,7 +87,7 @@ export const callApi = (
         // 登录校验失败
       } else if (data.code === 'xxx') { // 与服务端约定
         // 无权限
-        router.replace({ path: '/401' })
+        router.replace({ path: '/403' })
       } else if (data.code === 'xxx') { // 与服务端约定
         return Promise.resolve(data)
       } else {
@@ -102,6 +104,12 @@ export const callApi = (
         const { data } = error.response
         const resCode = data.status
         const resMsg = data.message || '服务异常'
+        // if (resCode === 401) { // 与服务端约定
+        //     // 登录校验失败
+        // } else if (data.code === 403) { // 与服务端约定
+        //     // 无权限
+        //     router.replace({ path: '/403' })
+        // }
         if (!errorMsgObj[resMsg]) {
           errorMsgObj[resMsg] = resMsg
         }

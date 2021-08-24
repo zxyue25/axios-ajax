@@ -1,4 +1,4 @@
-import { callApi } from '../../utils/https'
+import { callApi } from '../utils/https'
 
 export const mockGetQuery = () =>
   callApi({
