@@ -10,9 +10,7 @@ export const mockPostDel = (data) =>
   callApi({
     url: 'mock/postDel',
     data,
-    options: {
-      method: 'post',
-    },
+    method: 'post',
     prefixUrl: 'api1',
   })
 
@@ -20,9 +18,7 @@ export const mockPostAdd = (data) =>
   callApi({
     url: 'mock/postAdd',
     data,
-    options: {
-      method: 'post',
-    },
+    method: 'post',
     contentType: 'urlencoded',
     prefixUrl: 'api1',
   })

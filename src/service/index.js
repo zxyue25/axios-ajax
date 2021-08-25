@@ -12,17 +12,13 @@ export const postDel = (data) =>
   callApi({
     url: 'admin/postDel',
     data,
-    options: {
-      method: 'post',
-    },
+    method: 'post'
   })
 
 export const postAdd = (data) =>
   callApi({
     url: 'admin/postAdd',
     data,
-    options: {
-      method: 'post',
-    },
+    method: 'post',
     contentType: 'urlencoded',
   })

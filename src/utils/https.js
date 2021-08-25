@@ -27,13 +27,14 @@ const defaultOptions = {
   timeout: 15000,
 }
 
-export const callApi = (
+export const callApi = ({
   url,
   data = {},
+  method = 'get',
   options = {},
   contentType = 'json', // json || urlencoded || multipart
   prefixUrl = 'api'
-) => {
+}) => {
   if (!url) {
     const error = new Error('请传入url')
     return Promise.reject(error)
@@ -48,9 +49,11 @@ export const callApi = (
         (options.headers && options.headers['Content-Type']) ||
         contentTypes[contentType],
     },
+    method
   }
-
-  const { method } = newOptions
+  if(method === 'get'){
+    newOptions.params = data
+  }
 
   if (method !== 'get' && method !== 'head') {
     if (data instanceof FormData) {
