@@ -44,7 +44,9 @@ export const callApi = (
     ...defaultOptions,
     ...options,
     headers: {
-      'Content-Type': options.headers && options.headers['Content-Type'] || contentTypes[contentType],
+      'Content-Type':
+        (options.headers && options.headers['Content-Type']) ||
+        contentTypes[contentType],
     },
   }
 
@@ -83,12 +85,15 @@ export const callApi = (
   axios.interceptors.response.use(
     (response) => {
       const { data } = response
-      if (data.code === 'xxx') { // 与服务端约定
+      if (data.code === 'xxx') {
+        // 与服务端约定
         // 登录校验失败
-      } else if (data.code === 'xxx') { // 与服务端约定
+      } else if (data.code === 'xxx') {
+        // 与服务端约定
         // 无权限
         router.replace({ path: '/403' })
-      } else if (data.code === 'xxx') { // 与服务端约定
+      } else if (data.code === 'xxx') {
+        // 与服务端约定
         return Promise.resolve(data)
       } else {
         const { message } = data
