@@ -18,7 +18,6 @@ function toastMsg() {
 let errorMsgObj = {}
 
 const defaultOptions = {
-  method: 'get',
   withCredentials: true, // 允许把cookie传递到后台
   headers: {
     Accept: 'application/json',

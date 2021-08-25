@@ -3,16 +3,17 @@ import { callApi } from '../utils/https'
 export * from './mock'
 export * from './file'
 
-export const getQuery = () =>
+export const getQuery = (data) =>
   callApi({
     url: 'admin/getQuery',
+    data,
   })
 
 export const postDel = (data) =>
   callApi({
     url: 'admin/postDel',
     data,
-    method: 'post'
+    method: 'post',
   })
 
 export const postAdd = (data) =>
