@@ -3,6 +3,7 @@ import { callApi } from '../utils/https'
 export * from './mock'
 export * from './file'
 
+// get请求带参数
 export const getQuery = (data) =>
   callApi({
     url: 'admin/getQuery',
