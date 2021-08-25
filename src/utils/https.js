@@ -55,8 +55,8 @@ export const callApi = ({
   }
 
   if (method !== 'get' && method !== 'head') {
+    newOptions.data = data
     if (data instanceof FormData) {
-      newOptions.data = data
       newOptions.headers = {
         'x-requested-with': 'XMLHttpRequest',
         'cache-control': 'no-cache',
