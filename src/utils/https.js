@@ -44,7 +44,7 @@ export const callApi = (
     ...defaultOptions,
     ...options,
     headers: {
-      'Content-Type': contentTypes[contentType],
+      'Content-Type': options.headers && options.headers['Content-Type'] || contentTypes[contentType],
     },
   }
 
