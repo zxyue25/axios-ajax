@@ -32,7 +32,7 @@ export const callApi = ({
   method = 'get',
   options = {},
   contentType = 'json', // json || urlencoded || multipart
-  prefixUrl = 'api'
+  prefixUrl = 'api',
 }) => {
   if (!url) {
     const error = new Error('请传入url')
@@ -48,9 +48,9 @@ export const callApi = ({
         (options.headers && options.headers['Content-Type']) ||
         contentTypes[contentType],
     },
-    method
+    method,
   }
-  if(method === 'get'){
+  if (method === 'get') {
     newOptions.params = data
   }
 
@@ -84,8 +84,11 @@ export const callApi = ({
     return request
   })
 
-  axios.interceptors.response.use(
-    (response) => {
+  return axios({
+    url: fullUrl,
+    ...newOptions,
+  })
+    .then((response) => {
       const { data } = response
       if (data.code === 'xxx') {
         // 与服务端约定
@@ -105,8 +108,8 @@ export const callApi = ({
         setTimeout(debounce(toastMsg, 1000, true), 1000)
         return Promise.reject(data)
       }
-    },
-    (error) => {
+    })
+    .catch((error) => {
       if (error.response) {
         const { data } = error.response
         const resCode = data.status
@@ -127,11 +130,5 @@ export const callApi = ({
         const err = { type: 'canceled', respMsg: '数据请求超时' }
         return Promise.reject(err)
       }
-    }
-  )
-
-  return axios({
-    url: fullUrl,
-    ...newOptions,
-  })
+    })
 }
