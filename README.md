@@ -1,8 +1,3 @@
----
-theme: juejin
-highlight: a11y-dark
----
-
 # axios-ajax
 
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/602a1c2d4dd441979f6614f259038868~tplv-k3u1fbpfcp-watermark.image?)
